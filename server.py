@@ -43,10 +43,10 @@ class client :
     def run (self):
         try :
             self.__cSckt.connect (SERVER_ADDRESS)
+            self._getClients ()
         except OSError:
             print ('Server unfound, connexion failed.')
-        self._getClients ()
-    
+        
     def _getClients (self):
         parts = []
         done = False
@@ -54,7 +54,9 @@ class client :
             data = self.__cSckt.recv (1024)
             parts.append (data)
             done = data == b''
-        return b''.join (parts)
+        infos = (b''.join (parts)).decode ()
+        print (infos)
+        return infos
 
 if __name__ == '__main__':
     if len (sys.argv) == 2 and sys.argv [1] == 'server':
