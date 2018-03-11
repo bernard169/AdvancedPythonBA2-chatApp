@@ -5,7 +5,7 @@
 
 import socket
 import sys
-from chat.py import Chat
+from chat import Chat
 import json
 
 SERVER_ADDRESS = (socket.gethostname(), 6000) 
@@ -56,7 +56,7 @@ class client :
             done = data == b''
         return b''.join (parts)
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     if len (sys.argv) == 2 and sys.argv [1] == 'server':
         server().run ()
     elif len (sys.argv) == 2 and sys.argv [1]== 'client':
