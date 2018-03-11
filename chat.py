@@ -8,6 +8,10 @@ import sys
 import threading
 import subprocess
 
+#############################################
+# Class Chat from author Sebastien Combefis #
+#############################################
+
 class Chat: 
     def __init__(self, host=socket.gethostname(), port=5000):
         s = socket.socket(type=socket.SOCK_DGRAM)
