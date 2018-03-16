@@ -21,12 +21,12 @@ class server :
         self.__sckt.listen ()
         while True:
             client, addr = self.__sckt.accept () #client is a new socket, addr is a IPV4 address
-            print (client.gethostname ())
-            self.__clients [client.gethostname ()] = addr #clients name are the keys
-            self._sendClients ()
+            print (client.getsockname())
+            self.__clients [client.getsockname()[0]] = addr #clients name are the keys
+            self._sendClients (client)
 
     def _sendClients (self, client):
-        infos = (json.dumps(self.__clients, indent= 4)).encode ()
+        infos = json.dumps(self.__clients, indent= 4).encode ()
         totalsent = 0
         try:
             while totalsent < len (infos):
