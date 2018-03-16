@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
 # chat.py
-# author: Bernard Tourneur & Jonathan Miel
-# version: March 6, 2018
+# author: Sebastien Combefis
+# version: February 15, 2016
 
 import socket
 import sys
 import threading
 import subprocess
-
-#############################################
-# Class Chat from author Sebastien Combefis #
-#############################################
 
 class Chat: 
     def __init__(self, host=socket.gethostname(), port=5000):
